@@ -17,6 +17,8 @@ const config = {
   // // Set the /<baseUrl>/ pathname under which your site is served
   // // For GitHub pages deployment, it is often '/<projectName>/'
   // baseUrl: "/",
+
+  // Github pages デプロイ用の設定
   url: "https://kou72.github.io/",
   baseUrl: "/ai_flash_card_doc/",
 
