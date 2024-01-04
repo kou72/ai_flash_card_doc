@@ -8,15 +8,9 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "My Site",
-  tagline: "Dinosaurs are cool",
+  title: "Ai暗記カード",
+  tagline: "シンプルな暗記カードアプリ",
   favicon: "img/favicon.ico",
-
-  // // Set the production url of your site here
-  // url: 'https://your-docusaurus-site.example.com',
-  // // Set the /<baseUrl>/ pathname under which your site is served
-  // // For GitHub pages deployment, it is often '/<projectName>/'
-  // baseUrl: "/",
 
   // Github pages デプロイ用の設定
   url: "https://kou72.github.io/",
@@ -24,8 +18,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "kou72", // Usually your GitHub org/user name.
+  projectName: "ai_flash_card", // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -70,70 +64,45 @@ const config = {
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
       navbar: {
-        title: "My Site",
+        title: "Ai暗記カード",
         logo: {
-          alt: "My Site Logo",
-          src: "img/logo.svg",
+          alt: "Logo",
+          src: "img/icon.svg",
         },
         items: [
-          {
-            type: "docSidebar",
-            sidebarId: "tutorialSidebar",
-            position: "left",
-            label: "Tutorial",
-          },
-          { to: "/blog", label: "Blog", position: "left" },
-          {
-            href: "https://github.com/facebook/docusaurus",
-            label: "GitHub",
-            position: "right",
-          },
+          // {
+          //   type: "docSidebar",
+          //   sidebarId: "tutorialSidebar",
+          //   position: "left",
+          //   label: "Tutorial",
+          // },
+          // { to: "/blog", label: "Blog", position: "left" },
+          { to: "/blog", label: "利用規約", position: "right" },
+          { to: "/blog", label: "プライバシーポリシー", position: "right" },
+          // {
+          //   href: "https://github.com/facebook/docusaurus",
+          //   label: "GitHub",
+          //   position: "right",
+          // },
         ],
       },
       footer: {
         style: "dark",
         links: [
           {
-            title: "Docs",
-            items: [
-              {
-                label: "Tutorial",
-                to: "/docs/intro",
-              },
-            ],
+            label: "Portfolio",
+            to: "https://portfolio.skapp.dev/",
           },
           {
-            title: "Community",
-            items: [
-              {
-                label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/docusaurus",
-              },
-              {
-                label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
-              },
-              {
-                label: "Twitter",
-                href: "https://twitter.com/docusaurus",
-              },
-            ],
+            label: "GitHub",
+            to: "https://github.com/kou72",
           },
           {
-            title: "More",
-            items: [
-              {
-                label: "Blog",
-                to: "/blog",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
-              },
-            ],
+            label: "X (Twitter)",
+            to: "https://twitter.com/kou7273",
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `© ${new Date().getFullYear()} kou72.`,
       },
       prism: {
         theme: prismThemes.github,
