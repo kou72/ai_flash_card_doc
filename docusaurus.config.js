@@ -62,7 +62,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: "img/docusaurus-social-card.jpg",
+      image: "img/ai_flash_card_imgcard.png",
       navbar: {
         title: "Ai暗記カード",
         logo: {
@@ -70,20 +70,8 @@ const config = {
           src: "img/icon.svg",
         },
         items: [
-          // {
-          //   type: "docSidebar",
-          //   sidebarId: "tutorialSidebar",
-          //   position: "left",
-          //   label: "Tutorial",
-          // },
-          // { to: "/blog", label: "Blog", position: "left" },
           { to: "/blog", label: "利用規約", position: "right" },
           { to: "/blog", label: "プライバシーポリシー", position: "right" },
-          // {
-          //   href: "https://github.com/facebook/docusaurus",
-          //   label: "GitHub",
-          //   position: "right",
-          // },
         ],
       },
       footer: {
