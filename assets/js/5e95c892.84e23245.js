@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkai_flash_card_doc=self.webpackChunkai_flash_card_doc||[]).push([[9661],{1892:(a,e,s)=>{s.r(e),s.d(e,{default:()=>n});s(7294);var r=s(512),c=s(1944),d=s(5281),u=s(8790),l=s(6040),h=s(5893);function n(a){return(0,h.jsx)(c.FG,{className:(0,r.Z)(d.k.wrapper.docsPages),children:(0,h.jsx)(l.Z,{children:(0,u.H)(a.route.routes)})})}}}]);

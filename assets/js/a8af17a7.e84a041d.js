@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkai_flash_card_doc=self.webpackChunkai_flash_card_doc||[]).push([[2534],{7841:a=>{a.exports=JSON.parse('{"label":"facebook","permalink":"/ai_flash_card_doc/blog/tags/facebook","allTagsPath":"/ai_flash_card_doc/blog/tags","count":1,"unlisted":false}')}}]);
