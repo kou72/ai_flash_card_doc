@@ -70,8 +70,8 @@ const config = {
           src: "img/icon.svg",
         },
         items: [
-          { to: "/blog", label: "利用規約", position: "right" },
-          { to: "/blog", label: "プライバシーポリシー", position: "right" },
+          { to: "/terms", label: "利用規約", position: "right" },
+          { to: "/privacy", label: "プライバシーポリシー", position: "right" },
         ],
       },
       footer: {
