@@ -13,8 +13,8 @@ const config = {
   favicon: "img/favicon.ico",
 
   // Github pages デプロイ用の設定
-  url: "https://kou72.github.io/",
-  baseUrl: "/ai_flash_card_doc/",
+  url: "http://www.ankidoc.site/",
+  baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
