@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkai_flash_card_doc=self.webpackChunkai_flash_card_doc||[]).push([[9554],{2578:a=>{a.exports=JSON.parse('{"permalink":"/ai_flash_card_doc/blog/tags/hola","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
