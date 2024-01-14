@@ -1,3 +1,4 @@
+import { useState } from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
 import { Button, Box } from "@mui/material";
@@ -61,6 +62,19 @@ const AiSection = () => {
 };
 
 const TrialSection = () => {
+  const [apiResult, setApiResult] = useState(null);
+
+  const handleButtonClick = async () => {
+    try {
+      const response = await fetch("https://pokeapi.co/api/v2/pokemon/ditto");
+      const data = await response.json();
+      setApiResult(data);
+      console.log(data);
+    } catch (error) {
+      console.error("APIリクエストに失敗:", error);
+    }
+  };
+
   return (
     <div className={styles.trialsection}>
       <div className="row">
@@ -74,6 +88,7 @@ const TrialSection = () => {
                 background: "linear-gradient(45deg, #5B7FFF 30%, #F57EFF 90%)",
                 color: "white",
               }}
+              onClick={handleButtonClick}
             >
               カード生成を試してみる
             </Button>
