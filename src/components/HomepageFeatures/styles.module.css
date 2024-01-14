@@ -20,16 +20,17 @@
   margin: 1rem 0;
 }
 
-.features img {
-  margin: 0 0 1rem;
-  border-radius: 15px;
-}
-
-.aisection {
+.subsection {
   margin: 4rem 0;
 }
 
-.trysection {
+.subsection img {
+  margin: 0 0 1rem;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+}
+
+.trialsection {
   background-color: #cfd8dc;
   border-radius: 15px;
   padding: 2rem;
@@ -66,7 +67,7 @@
   margin-top: 2rem;
   border-radius: 15px;
   background-color: #ffffff;
-  height: 400px;
+  height: 500px;
 }
 
 .result p {
