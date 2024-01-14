@@ -49,7 +49,6 @@
 }
 
 .uploadimg img {
-  border: 1px solid #ccc;
   border-radius: 15px;
   height: auto;
   width: auto;
@@ -65,7 +64,6 @@
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
-  border: 1px solid #ccc;
   border-radius: 15px;
   background-color: #ffffff;
   height: 400px;
