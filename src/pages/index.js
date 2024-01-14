@@ -21,6 +21,8 @@ export default function Home() {
       </header>
       <main>
         <HomepageFeatures />
+        <h2 className="text--center">今すぐインストール！</h2>
+        <HomepageBadges />
       </main>
     </Layout>
   );
