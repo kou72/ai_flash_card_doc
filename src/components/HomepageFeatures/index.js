@@ -84,6 +84,7 @@ const TrialSection = () => {
           </div>
           <Button variant="contained">画像を変更する</Button>
           <p>
+            実行前に
             <a href="https://ankidoc.site/privacy">プライバシーポリシー</a>
             をご確認ください
           </p>
