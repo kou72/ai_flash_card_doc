@@ -3,9 +3,12 @@
   align-items: center;
   justify-content: center;
   flex-flow: column;
-  margin-top: 2rem;
   width: 100%;
-  padding: 2rem 0;
+  padding: 4rem 2rem;
+}
+
+.features h2 {
+  margin-bottom: 4rem;
 }
 
 .icon {
