@@ -3,27 +3,74 @@
   align-items: center;
   justify-content: center;
   flex-flow: column;
+  text-align: center;
   width: 100%;
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
 }
 
 .features h2 {
-  margin-bottom: 4rem;
+  margin: 2rem 0;
 }
 
-.icon {
+.features h3 {
+  margin: 1rem 0;
+}
+
+.features p {
+  margin: 1rem 0;
+}
+
+.features img {
+  margin: 0 0 1rem;
+  border-radius: 15px;
+}
+
+.aisection {
+  margin: 4rem 0;
+}
+
+.trysection {
+  background-color: #cfd8dc;
+  border-radius: 15px;
+  padding: 2rem;
+}
+
+.trybutton {
+  margin: 2rem 0;
+}
+
+.uploadimg {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* 縦中央寄せ */
+  margin: 2rem 0;
+  height: 400px;
+}
+
+.uploadimg img {
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  height: auto;
+  width: auto;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain; /* 画像の縦横比を維持したまま、要素の中に収まるようにする */
+  margin: 0; /* justify-content: center; がmargin分ズレる挙動を回避 */
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-flow: row;
+  margin-top: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  background-color: #ffffff;
+  height: 400px;
 }
 
-.ImageSVG {
-  height: 100px;
-  width: 100px;
-}
-
-.RightArrowSVG {
-  height: 50px;
-  width: 50px;
+.result p {
+  font-size: 1.5rem;
 }
