@@ -4,9 +4,21 @@ import styles from "./styles.module.css";
 export default function HomepageBadges() {
   return (
     <div className={styles.badges}>
-      {BadgeList.map((props, idx) => (
-        <Badge key={idx} {...props} />
-      ))}
+      <div className="row">
+        {BadgeList.map((props, idx) => (
+          <Badge key={idx} {...props} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Badge({ href, img }) {
+  return (
+    <div className={clsx("col col--4")}>
+      <a href={href} target="_blank" rel="noopener noreferrer">
+        <img src={require("@site/static/img/" + img).default} alt={img} />
+      </a>
     </div>
   );
 }
@@ -25,11 +37,3 @@ const BadgeList = [
     img: "web-app-badge.png",
   },
 ];
-
-function Badge({ href, img }) {
-  return (
-    <a href={href} target="_blank" rel="noopener noreferrer">
-      <img src={require("@site/static/img/" + img).default} alt={img} />
-    </a>
-  );
-}
