@@ -66,7 +66,10 @@ const TrialSection = () => {
 
   const handleButtonClick = async () => {
     try {
-      const response = await fetch("https://pokeapi.co/api/v2/pokemon/ditto");
+      // const response = await fetch("https://pokeapi.co/api/v2/pokemon/ditto");
+      const response = await fetch(
+        "http://127.0.0.1:5001/flash-pdf-card/us-central1/generateImageToQaWeb"
+      );
       const data = await response.json();
       setApiResult(data);
       console.log(data);
