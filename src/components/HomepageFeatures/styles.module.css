@@ -1,11 +1,26 @@
 .features {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
+  justify-content: center;
+  flex-flow: column;
+  margin-top: 2rem;
   width: 100%;
+  padding: 2rem 0;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row;
+}
+
+.ImageSVG {
+  height: 100px;
+  width: 100px;
+}
+
+.RightArrowSVG {
+  height: 50px;
+  width: 50px;
 }
