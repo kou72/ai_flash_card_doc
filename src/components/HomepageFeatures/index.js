@@ -41,7 +41,7 @@ const AiSection = () => {
               color: "primary.main",
             }}
           />
-          <h3>写真をアップロード、あとはAIにお任せ</h3>
+          <h3>画像をアップロード、あとはAIにお任せ</h3>
           <p>
             画像のテキストからキーワードを抽出し、自動で暗記カードを生成。
             <br />
@@ -68,6 +68,7 @@ const TrialSection = () => {
           <div className={styles.trybutton}>
             <Button
               variant="contained"
+              size="large"
               startIcon={<SmartToyIcon />}
               style={{
                 background: "linear-gradient(45deg, #5B7FFF 30%, #F57EFF 90%)",
@@ -84,6 +85,7 @@ const TrialSection = () => {
           </div>
           <Button variant="contained">画像を変更する</Button>
           <p>
+            実行前に
             <a href="https://ankidoc.site/privacy">プライバシーポリシー</a>
             をご確認ください
           </p>

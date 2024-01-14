@@ -36,6 +36,10 @@
   padding: 2rem;
 }
 
+[data-theme="dark"] .trialsection {
+  background-color: #37474f;
+}
+
 .trybutton {
   margin: 2rem 0;
 }
@@ -68,6 +72,10 @@
   border-radius: 15px;
   background-color: #ffffff;
   height: 500px;
+}
+
+[data-theme="dark"] .result {
+  background-color: #1c1e21;
 }
 
 .result p {
