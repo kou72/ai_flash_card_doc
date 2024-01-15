@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import clsx from "clsx";
 import styles from "./styles.module.css";
 import { Button, Box } from "@mui/material";
@@ -8,6 +9,7 @@ import TaskIcon from "@mui/icons-material/Task";
 import StyleIcon from "@mui/icons-material/Style";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { blueGrey } from "@mui/material/colors";
+import axios from "axios";
 
 const theme = createTheme({
   palette: {
@@ -62,19 +64,26 @@ const AiSection = () => {
 };
 
 const TrialSection = () => {
-  const [apiResult, setApiResult] = useState(null);
-
-  const handleButtonClick = async () => {
+  const { siteConfig } = useDocusaurusContext();
+  const generateImageToQaWeb = async () => {
     try {
-      // const response = await fetch("https://pokeapi.co/api/v2/pokemon/ditto");
-      const response = await fetch(
-        "http://127.0.0.1:5001/flash-pdf-card/us-central1/generateImageToQaWeb"
-      );
-      const data = await response.json();
-      setApiResult(data);
-      console.log(data);
+      const sampledocPath = siteConfig.url + "/img/sampledoc.png";
+      const sampledoc = await fetch(sampledocPath);
+      const blob = await sampledoc.blob();
+
+      const encodedFileName = btoa(encodeURIComponent("sampledoc.png"));
+      const file = new File([blob], encodedFileName, { type: blob.type });
+      const formData = new FormData();
+      const url = "http://127.0.0.1:5001/flash-pdf-card/us-central1/generateImageToQaWeb";
+      formData.append("file", file);
+      const response = await axios.post(url, formData, {
+        headers: {
+          "content-type": "multipart/form-data",
+        },
+      });
+      console.log(response.data);
     } catch (error) {
-      console.error("APIリクエストに失敗:", error);
+      console.error(error);
     }
   };
 
@@ -91,7 +100,7 @@ const TrialSection = () => {
                 background: "linear-gradient(45deg, #5B7FFF 30%, #F57EFF 90%)",
                 color: "white",
               }}
-              onClick={handleButtonClick}
+              onClick={generateImageToQaWeb}
             >
               カード生成を試してみる
             </Button>

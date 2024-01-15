@@ -13,7 +13,7 @@ const config = {
   favicon: "img/favicon.ico",
 
   // Github pages デプロイ用の設定
-  url: "http://www.ankidoc.site/",
+  url: "http://ankidoc.site/",
   baseUrl: "/",
 
   // GitHub pages deployment config.
