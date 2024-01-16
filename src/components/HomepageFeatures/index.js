@@ -133,6 +133,7 @@ const AiSection = () => {
 const TrialSection = () => {
   const { siteConfig } = useDocusaurusContext();
   const [cardList, setCardList] = useState(testcardList);
+  // const [cardList, setCardList] = useState([]);
 
   const generateImageToQaWeb = async () => {
     try {
@@ -156,10 +157,27 @@ const TrialSection = () => {
     }
   };
 
-  const Cards = () => {
+  const Question = (card) => {
+    return <div className={styles.question}>{card.question}</div>;
+  };
+
+  const Answer = (card) => {
+    return <div className={styles.answer}>{card.answer}</div>;
+  };
+
+  const FlashCard = (card, index) => {
+    const [isFlipped, setIsFlipped] = useState(false);
+    return (
+      <div key={index} onClick={() => setIsFlipped(!isFlipped)}>
+        <Card className={styles.card}>{isFlipped ? Answer(card) : Question(card)}</Card>
+      </div>
+    );
+  };
+
+  const FlashCards = () => {
     if (cardList.length == 0) {
       return (
-        <>
+        <div className={styles.empty}>
           <LocalOfferIcon
             sx={{
               fontSize: 70,
@@ -169,17 +187,13 @@ const TrialSection = () => {
           <Box sx={{ color: "primary.light" }}>
             <p>ここに結果が表示されます</p>
           </Box>
-        </>
+        </div>
       );
     }
     return (
       <>
         {cardList.map((card, index) => {
-          return (
-            <div key={index}>
-              <Card className={styles.card}>{card.question}</Card>
-            </div>
-          );
+          return FlashCard(card, index);
         })}
       </>
     );
@@ -217,7 +231,7 @@ const TrialSection = () => {
         </div>
         <div className={clsx("col col--6")}>
           <div className={styles.result}>
-            <Cards />
+            <FlashCards />
           </div>
         </div>
       </div>
