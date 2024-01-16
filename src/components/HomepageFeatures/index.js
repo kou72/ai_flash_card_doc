@@ -2,7 +2,7 @@ import { useState } from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import clsx from "clsx";
 import styles from "./styles.module.css";
-import { Button, Box } from "@mui/material";
+import { Button, Box, Card } from "@mui/material";
 import SmartToyIcon from "@mui/icons-material/SmartToy";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import TaskIcon from "@mui/icons-material/Task";
@@ -10,6 +10,73 @@ import StyleIcon from "@mui/icons-material/Style";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { blueGrey } from "@mui/material/colors";
 import axios from "axios";
+
+const testcardList = [
+  {
+    question:
+      "情報通信白書で取り上げられている、ICTとデジタル経済の進化の先にあるとされる社会の形態は何か？",
+    answer: "Society 5.0",
+    note: "",
+  },
+  {
+    question: "情報通信白書で語られている、ICTの新たな潮流として挙げられている3つの要素は何か？",
+    answer: "デジタル・プラットフォーマー、AI、サイバーセキュリティ",
+    note: "",
+  },
+  {
+    question: "情報通信白書で示されている、ICTがもたらした新たな経済の姿を表す4つの用語は何か？",
+    answer: "xTech、シェアリングエコノミー、ギグエコノミー、デジタル・プラットフォーマー",
+    note: "",
+  },
+  {
+    question:
+      "情報通信白書で取り上げられている、ICTの発展により生じた新たな働き方について説明する用語は何か？",
+    answer: "ギグエコノミー",
+    note: "",
+  },
+  {
+    question:
+      "情報通信白書で取り上げられている、ICTの発展により生じた新たな経済の形態について説明する用語は何か？",
+    answer: "デジタル経済",
+    note: "",
+  },
+  {
+    question:
+      "情報通信白書で取り上げられている、ICTの発展により生じた新たなサービス形態について説明する用語は何か？",
+    answer: "シェアリングエコノミー",
+    note: "",
+  },
+  {
+    question:
+      "情報通信白書で取り上げられている、ICTの発展により生じた新たな技術領域について説明する用語は何か？",
+    answer: "AI",
+    note: "",
+  },
+  {
+    question:
+      "情報通信白書で取り上げられている、ICTの発展により生じた新たな通信技術について説明する用語は何か？",
+    answer: "5G",
+    note: "",
+  },
+  {
+    question:
+      "情報通信白書で取り上げられている、ICTの発展により生じた新たなデータ活用の形態について説明する用語は何か？",
+    answer: "ビッグデータ",
+    note: "",
+  },
+  {
+    question:
+      "情報通信白書で取り上げられている、ICTの発展により生じた新たなデバイスについて説明する用語は何か？",
+    answer: "スマートフォン",
+    note: "",
+  },
+  {
+    question:
+      "情報通信白書で取り上げられている、ICTの発展により生じた新たなネットワークの形態について説明する用語は何か？",
+    answer: "IoT",
+    note: "",
+  },
+];
 
 const theme = createTheme({
   palette: {
@@ -65,6 +132,8 @@ const AiSection = () => {
 
 const TrialSection = () => {
   const { siteConfig } = useDocusaurusContext();
+  const [cardList, setCardList] = useState(testcardList);
+
   const generateImageToQaWeb = async () => {
     try {
       const sampledocPath = siteConfig.url + "/img/sampledoc.png";
@@ -85,6 +154,35 @@ const TrialSection = () => {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const Cards = () => {
+    if (cardList.length == 0) {
+      return (
+        <>
+          <LocalOfferIcon
+            sx={{
+              fontSize: 70,
+              color: "primary.light",
+            }}
+          />
+          <Box sx={{ color: "primary.light" }}>
+            <p>ここに結果が表示されます</p>
+          </Box>
+        </>
+      );
+    }
+    return (
+      <>
+        {cardList.map((card, index) => {
+          return (
+            <div key={index}>
+              <Card className={styles.card}>{card.question}</Card>
+            </div>
+          );
+        })}
+      </>
+    );
   };
 
   return (
@@ -119,17 +217,7 @@ const TrialSection = () => {
         </div>
         <div className={clsx("col col--6")}>
           <div className={styles.result}>
-            <div className="text--center">
-              <LocalOfferIcon
-                sx={{
-                  fontSize: 70,
-                  color: "primary.light",
-                }}
-              />
-              <Box sx={{ color: "primary.light" }}>
-                <p>ここに結果が表示されます</p>
-              </Box>
-            </div>
+            <Cards />
           </div>
         </div>
       </div>
