@@ -2,7 +2,7 @@ import { useState } from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import clsx from "clsx";
 import styles from "./styles.module.css";
-import { Button, Box, Card } from "@mui/material";
+import { Button, Box, Card, CircularProgress } from "@mui/material";
 import SmartToyIcon from "@mui/icons-material/SmartToy";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import TaskIcon from "@mui/icons-material/Task";
@@ -10,6 +10,7 @@ import StyleIcon from "@mui/icons-material/Style";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { blueGrey } from "@mui/material/colors";
 import axios from "axios";
+import { height } from "@mui/system";
 
 const testcardList = [
   {
@@ -132,8 +133,8 @@ const AiSection = () => {
 
 const TrialSection = () => {
   const { siteConfig } = useDocusaurusContext();
-  const [cardList, setCardList] = useState(testcardList);
-  // const [cardList, setCardList] = useState([]);
+  const [cardList, setCardList] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(true);
 
   const generateImageToQaWeb = async () => {
     try {
@@ -146,12 +147,16 @@ const TrialSection = () => {
       const formData = new FormData();
       const url = "http://127.0.0.1:5001/flash-pdf-card/us-central1/generateImageToQaWeb";
       formData.append("file", file);
+      setIsLoaded(true);
+      console.log("generating...");
       const response = await axios.post(url, formData, {
         headers: {
           "content-type": "multipart/form-data",
         },
       });
       console.log(response.data);
+      setCardList(response.data);
+      setIsLoaded(false);
     } catch (error) {
       console.error(error);
     }
@@ -174,22 +179,36 @@ const TrialSection = () => {
     );
   };
 
+  const Empty = () => {
+    return (
+      <div className={styles.empty}>
+        <LocalOfferIcon
+          sx={{
+            fontSize: 70,
+            color: "primary.light",
+          }}
+        />
+        <Box sx={{ color: "primary.light" }}>
+          <p>ここに結果が表示されます</p>
+        </Box>
+      </div>
+    );
+  };
+
+  const Loading = () => {
+    return (
+      <div className={styles.loading}>
+        <CircularProgress size="6rem" />
+        <Box sx={{ color: "primary.light" }} className={styles.loadingtext}>
+          <p>生成には30秒程度かかります</p>
+        </Box>
+      </div>
+    );
+  };
+
   const FlashCards = () => {
-    if (cardList.length == 0) {
-      return (
-        <div className={styles.empty}>
-          <LocalOfferIcon
-            sx={{
-              fontSize: 70,
-              color: "primary.light",
-            }}
-          />
-          <Box sx={{ color: "primary.light" }}>
-            <p>ここに結果が表示されます</p>
-          </Box>
-        </div>
-      );
-    }
+    if (isLoaded) return <Loading />;
+    if (cardList.length == 0) return <Empty />;
     return (
       <>
         {cardList.map((card, index) => {

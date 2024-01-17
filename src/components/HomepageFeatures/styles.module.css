@@ -94,6 +94,22 @@
   justify-content: center;
 }
 
+.loading {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loadingtext {
+  margin: 2rem 2rem 0;
+}
+
+.loadingtext p {
+  font-size: 1.25rem;
+}
+
 .cardbase {
   width: 100%;
 }
