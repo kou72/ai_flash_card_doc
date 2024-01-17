@@ -101,6 +101,7 @@
 .card {
   width: 80%;
   max-width: 400px;
+  min-height: 80px;
   padding: 0.5rem 1rem;
   margin: 0.3rem auto;
   font-size: 0.85rem;
