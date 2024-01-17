@@ -94,6 +94,10 @@
   justify-content: center;
 }
 
+.cardbase {
+  width: 100%;
+}
+
 .card {
   width: 80%;
   max-width: 400px;
@@ -115,4 +119,5 @@
 
 .answer {
   font-family: "system-ui", sans-serif;
+  color: #448aff;
 }

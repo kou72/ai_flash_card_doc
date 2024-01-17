@@ -168,7 +168,7 @@ const TrialSection = () => {
   const FlashCard = (card, index) => {
     const [isFlipped, setIsFlipped] = useState(false);
     return (
-      <div key={index} onClick={() => setIsFlipped(!isFlipped)}>
+      <div key={index} onClick={() => setIsFlipped(!isFlipped)} className={styles.cardbase}>
         <Card className={styles.card}>{isFlipped ? Answer(card) : Question(card)}</Card>
       </div>
     );
