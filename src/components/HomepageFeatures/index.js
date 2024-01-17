@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import clsx from "clsx";
 import styles from "./styles.module.css";
@@ -67,18 +67,26 @@ const TrialSection = () => {
   const { siteConfig } = useDocusaurusContext();
   const [cardList, setCardList] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [uploadFile, setUploadFile] = useState(null);
+  const fileInputRef = useRef(null);
 
   const generateImageToQaWeb = async () => {
     try {
-      const sampledocPath = siteConfig.url + "/img/sampledoc.png";
-      const sampledoc = await fetch(sampledocPath);
-      const blob = await sampledoc.blob();
-
-      const encodedFileName = btoa(encodeURIComponent("sampledoc.png"));
-      const file = new File([blob], encodedFileName, { type: blob.type });
       const formData = new FormData();
       const url = "http://127.0.0.1:5001/flash-pdf-card/us-central1/generateImageToQaWeb";
-      formData.append("file", file);
+
+      if (uploadFile) {
+        const encodedFileName = btoa(encodeURIComponent(uploadFile.name));
+        formData.append("file", uploadFile, encodedFileName);
+      } else {
+        const sampledocPath = siteConfig.url + "/img/sampledoc.png";
+        const sampledoc = await fetch(sampledocPath);
+        const blob = await sampledoc.blob();
+        const encodedFileName = btoa(encodeURIComponent("sampledoc.png"));
+        const file = new File([blob], encodedFileName, { type: blob.type });
+        formData.append("file", file);
+      }
+
       setIsLoaded(true);
       console.log("generating...");
       const response = await axios.post(url, formData, {
@@ -150,6 +158,16 @@ const TrialSection = () => {
     );
   };
 
+  const handleFileChange = async (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+    setUploadFile(file);
+  };
+
+  const handleChangeImageClick = () => {
+    fileInputRef.current.click();
+  };
+
   return (
     <div className={styles.trialsection}>
       <div className="row">
@@ -171,9 +189,22 @@ const TrialSection = () => {
         </div>
         <div className={clsx("col col--6")}>
           <div className={styles.uploadimg}>
-            <img src={require("@site/static/img/sampledoc.png").default} alt="sampledoc.png" />
+            {uploadFile ? (
+              <img src={URL.createObjectURL(uploadFile)} alt={uploadFile.name} />
+            ) : (
+              <img src={require("@site/static/img/sampledoc.png").default} alt="sampledoc.png" />
+            )}
           </div>
-          <Button variant="contained">画像を変更する</Button>
+          <Button variant="contained" onClick={handleChangeImageClick}>
+            画像を変更する
+          </Button>
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleFileChange}
+            accept="image/jpeg, image/png"
+            style={{ display: "none" }}
+          />
           <p>
             実行前に
             <a href="https://ankidoc.site/privacy">プライバシーポリシー</a>
