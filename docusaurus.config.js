@@ -78,7 +78,7 @@ const config = {
         style: "dark",
         links: [
           {
-            label: "Portfolio",
+            label: "Homepage",
             to: "https://portfolio.skapp.dev/",
           },
           {
