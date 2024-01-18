@@ -73,7 +73,7 @@ const TrialSection = () => {
   const generateImageToQaWeb = async () => {
     try {
       const formData = new FormData();
-      const url = "http://127.0.0.1:5001/flash-pdf-card/us-central1/generateImageToQaWeb";
+      const url = "https://generateimagetoqaweb-vhoidcprtq-uc.a.run.app";
 
       if (uploadFile) {
         const encodedFileName = btoa(encodeURIComponent(uploadFile.name));
@@ -173,18 +173,24 @@ const TrialSection = () => {
       <div className="row">
         <div className={clsx("col col--12")}>
           <div className={styles.trybutton}>
-            <Button
-              variant="contained"
-              size="large"
-              startIcon={<SmartToyIcon />}
-              style={{
-                background: "linear-gradient(45deg, #5B7FFF 30%, #F57EFF 90%)",
-                color: "white",
-              }}
-              onClick={generateImageToQaWeb}
-            >
-              カード生成を試してみる
-            </Button>
+            {isLoaded ? (
+              <Button disabled variant="contained" size="large" startIcon={<SmartToyIcon />}>
+                カード生成を試してみる
+              </Button>
+            ) : (
+              <Button
+                variant="contained"
+                size="large"
+                startIcon={<SmartToyIcon />}
+                style={{
+                  background: "linear-gradient(45deg, #5B7FFF 30%, #F57EFF 90%)",
+                  color: "white",
+                }}
+                onClick={generateImageToQaWeb}
+              >
+                カード生成を試してみる
+              </Button>
+            )}
           </div>
         </div>
         <div className={clsx("col col--6")}>
