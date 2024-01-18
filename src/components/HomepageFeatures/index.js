@@ -173,18 +173,24 @@ const TrialSection = () => {
       <div className="row">
         <div className={clsx("col col--12")}>
           <div className={styles.trybutton}>
-            <Button
-              variant="contained"
-              size="large"
-              startIcon={<SmartToyIcon />}
-              style={{
-                background: "linear-gradient(45deg, #5B7FFF 30%, #F57EFF 90%)",
-                color: "white",
-              }}
-              onClick={generateImageToQaWeb}
-            >
-              カード生成を試してみる
-            </Button>
+            {isLoaded ? (
+              <Button disabled variant="contained" size="large" startIcon={<SmartToyIcon />}>
+                カード生成を試してみる
+              </Button>
+            ) : (
+              <Button
+                variant="contained"
+                size="large"
+                startIcon={<SmartToyIcon />}
+                style={{
+                  background: "linear-gradient(45deg, #5B7FFF 30%, #F57EFF 90%)",
+                  color: "white",
+                }}
+                onClick={generateImageToQaWeb}
+              >
+                カード生成を試してみる
+              </Button>
+            )}
           </div>
         </div>
         <div className={clsx("col col--6")}>
