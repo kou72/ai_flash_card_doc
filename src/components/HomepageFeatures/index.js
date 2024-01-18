@@ -73,7 +73,7 @@ const TrialSection = () => {
   const generateImageToQaWeb = async () => {
     try {
       const formData = new FormData();
-      const url = "http://127.0.0.1:5001/flash-pdf-card/us-central1/generateImageToQaWeb";
+      const url = "https://generateimagetoqaweb-vhoidcprtq-uc.a.run.app";
 
       if (uploadFile) {
         const encodedFileName = btoa(encodeURIComponent(uploadFile.name));
