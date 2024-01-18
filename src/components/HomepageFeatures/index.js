@@ -67,6 +67,7 @@ const TrialSection = () => {
   const { siteConfig } = useDocusaurusContext();
   const [cardList, setCardList] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [loadingText, setLoadingText] = useState("生成には30秒程度かかります");
   const [uploadFile, setUploadFile] = useState(null);
   const fileInputRef = useRef(null);
 
@@ -99,6 +100,7 @@ const TrialSection = () => {
       setIsLoaded(false);
     } catch (error) {
       console.error(error);
+      setLoadingText("エラーが発生しました！");
     }
   };
 
@@ -140,7 +142,7 @@ const TrialSection = () => {
       <div className={styles.loading}>
         <CircularProgress size="6rem" />
         <Box sx={{ color: "primary.light" }} className={styles.loadingtext}>
-          <p>生成には30秒程度かかります</p>
+          <p>{loadingText}</p>
         </Box>
       </div>
     );
