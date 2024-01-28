@@ -19,9 +19,9 @@ export default function Home() {
           <HomepageBadges />
         </div>
       </header>
-      <main>
+      <main className="text--center">
         <HomepageFeatures />
-        <h2 className="text--center">今すぐインストール！</h2>
+        <h2>今すぐインストール！</h2>
         <HomepageBadges />
       </main>
     </Layout>
