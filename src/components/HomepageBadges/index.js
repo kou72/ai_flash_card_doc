@@ -29,7 +29,7 @@ const BadgeList = [
     img: "app-store-badge.png",
   },
   {
-    href: "https://play.google.com/store/apps/details?id=dev.skapp.ai_flash_card",
+    href: "https://play.google.com/store/apps/details?id=ankiapp.site.ai_flash_card",
     img: "google-play-badge.png",
   },
   {
