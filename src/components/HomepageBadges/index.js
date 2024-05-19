@@ -25,7 +25,7 @@ function Badge({ href, img }) {
 
 const BadgeList = [
   {
-    href: "https://apps.apple.com/jp/app/ai%E6%9A%97%E8%A8%98%E3%82%AB%E3%83%BC%E3%83%89/id1580596147",
+    href: "https://itunes.apple.com/jp/app/id6476872170?mt=8",
     img: "app-store-badge.png",
   },
   {
